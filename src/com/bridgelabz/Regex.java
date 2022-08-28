@@ -7,6 +7,7 @@ public class Regex {
     static Scanner sc =  new Scanner(System.in);
     static Pattern string = Pattern.compile("^[A-Z][a-z]{3,}$");
     static Pattern email = Pattern.compile("^[a-z+.]+@(.+)$");
+    static Pattern mobile = Pattern.compile("^[0-9]{1,2}[0-9]{10}$");
 
     public static void main(String[] args) {
         System.out.println("Enter your first name:- ");
@@ -15,6 +16,8 @@ public class Regex {
         String lastName = sc.next();
         System.out.println("Enter a valid email \n eg:- abc.xyz@bl.co.in");
         String emailValid = sc.next();
+        System.out.println("Enter a Valid Mobile Number:- ");
+        String mobileNo = sc.next();
 
         Matcher matchFirstName = string.matcher(firstName);
         Matcher matchLastName = string.matcher(lastName);
@@ -30,6 +33,13 @@ public class Regex {
         }
         else{
             System.out.println("Invalid Email");
+        }
+        Matcher matchNum = mobile.matcher(mobileNo);
+        if (matchNum.matches()){
+            System.out.println("Valid Mobile Number");
+        }
+        else {
+            System.out.println("Invalid Mobile Number");
         }
     }
 
