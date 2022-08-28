@@ -8,6 +8,7 @@ public class Regex {
     static Pattern string = Pattern.compile("^[A-Z][a-z]{3,}$");
     static Pattern email = Pattern.compile("^[a-z+.]+@(.+)$");
     static Pattern mobile = Pattern.compile("^[0-9]{1,2}[0-9]{10}$");
+    static Pattern password1 = Pattern.compile("^.{8,}$");
 
     public static void main(String[] args) {
         System.out.println("Enter your first name:- ");
@@ -18,6 +19,8 @@ public class Regex {
         String emailValid = sc.next();
         System.out.println("Enter a Valid Mobile Number:- ");
         String mobileNo = sc.next();
+        System.out.println("Enter password1");
+        String pass1 = sc.next();
 
         Matcher matchFirstName = string.matcher(firstName);
         Matcher matchLastName = string.matcher(lastName);
@@ -40,6 +43,13 @@ public class Regex {
         }
         else {
             System.out.println("Invalid Mobile Number");
+        }
+        Matcher matchPassword = password1.matcher(pass1);
+        if (matchPassword.matches()){
+            System.out.println("valid Password");
+        }
+        else {
+            System.out.println("Invalid Password");
         }
     }
 
