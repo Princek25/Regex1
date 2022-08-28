@@ -10,6 +10,7 @@ public class Regex {
     static Pattern mobile = Pattern.compile("^[0-9]{1,2}[0-9]{10}$");
     static Pattern password1 = Pattern.compile("^.{8,}$");
     static Pattern password2 = Pattern.compile("^(?=.*[A-Z]).{8,}$");
+    static Pattern password3 = Pattern.compile("^(?=.*[0-9])(?=.*[A-Z]).{8,}$");
 
     public static void main(String[] args) {
         System.out.println("Enter your first name:- ");
@@ -24,6 +25,8 @@ public class Regex {
         String pass1 = sc.next();
         System.out.println("Enter password2");
         String pass2 = sc.next();
+        System.out.println("Enter password3");
+        String pass3 = sc.next();
 
         Matcher matchFirstName = string.matcher(firstName);
         Matcher matchLastName = string.matcher(lastName);
@@ -49,7 +52,8 @@ public class Regex {
         }
         Matcher matchPassword = password1.matcher(pass1);
         Matcher matchPassword2 = password2.matcher(pass2);
-        if (matchPassword.matches() | matchPassword2.matches()){
+        Matcher matchPassword3 = password3.matcher(pass3);
+        if (matchPassword.matches() | matchPassword2.matches() | matchPassword3.matches()){
             System.out.println("valid Password");
         }
         else {
