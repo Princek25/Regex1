@@ -10,8 +10,12 @@ public class Regex {
     public static void main(String[] args) {
         System.out.println("Enter your first name:- ");
         String firstName = sc.next();
-        Matcher matcher = string.matcher(firstName);
-        if(matcher.matches()){
+        System.out.println("Enter your last name:- ");
+        String lastName = sc.next();
+
+        Matcher matchFirstName = string.matcher(firstName);
+        Matcher matchLastName = string.matcher(lastName);
+        if(matchFirstName.matches() && matchLastName.matches()){
             System.out.println("Valid Name");
         }
         else{
